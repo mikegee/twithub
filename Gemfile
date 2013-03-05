@@ -12,7 +12,11 @@ gem 'thin'
 
 group :development do
   gem 'guard-rspec'
-  gem 'rb-fsevent'
+  gem 'rb-fsevent', require: false
+end
+
+group :test do
+  gem 'capybara'
 end
 
 group :test, :development do
@@ -23,4 +27,23 @@ group :assets do
   gem 'sass-rails'
   gem 'coffee-rails'
   gem 'uglifier'
+end
+
+
+__END__
+gem 'bootstrap-sass'
+gem 'cancan'
+gem 'haml'
+gem 'jquery-rails'
+gem 'simple_form'
+
+group :development, :test do
+  gem 'factory_girl_rails'
+  gem 'haml-rails'
+end
+
+group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'quiet_assets'
 end
