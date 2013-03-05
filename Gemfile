@@ -5,9 +5,12 @@ gem 'rails'
 gem 'sqlite3', group: [:test, :development]
 gem 'pg',      group: [:production, :staging]
 
+gem 'bootstrap-sass'
 gem 'foreman'
+gem 'haml'
 gem 'jquery-rails'
 gem 'omniauth-github'
+gem 'sass-rails'
 gem 'thin'
 
 group :development do
@@ -31,9 +34,7 @@ end
 
 
 __END__
-gem 'bootstrap-sass'
 gem 'cancan'
-gem 'haml'
 gem 'jquery-rails'
 gem 'simple_form'
 

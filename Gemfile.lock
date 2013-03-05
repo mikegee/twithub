@@ -29,6 +29,8 @@ GEM
       i18n (~> 0.6)
       multi_json (~> 1.0)
     arel (3.0.2)
+    bootstrap-sass (2.3.0.1)
+      sass (~> 3.2)
     builder (3.0.4)
     capybara (2.0.2)
       mime-types (>= 1.16)
@@ -67,6 +69,8 @@ GEM
     guard-rspec (2.5.0)
       guard (>= 1.1)
       rspec (~> 2.11)
+    haml (4.0.0)
+      tilt
     hashie (1.2.0)
     hike (1.2.1)
     httpauth (0.2.0)
@@ -191,10 +195,12 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bootstrap-sass
   capybara
   coffee-rails
   foreman
   guard-rspec
+  haml
   jquery-rails
   omniauth-github
   pg
