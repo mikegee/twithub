@@ -5,4 +5,6 @@ Twithub::Application.routes.draw do
   match '/auth/:provider/callback', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy', as: 'logout'
 
+  resources :statuses, only: [:index, :create]
+
 end

@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
 
+  has_many :statuses, foreign_key: 'author_id'
+
   attr_accessible :name, :email
 
   validates_presence_of :name, :email

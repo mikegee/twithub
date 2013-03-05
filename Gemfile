@@ -11,6 +11,7 @@ gem 'haml'
 gem 'jquery-rails'
 gem 'omniauth-github'
 gem 'sass-rails'
+gem 'simple_form'
 gem 'thin'
 
 group :development do
@@ -35,8 +36,3 @@ group :assets do
   gem 'coffee-rails'
   gem 'uglifier'
 end
-
-
-__END__
-gem 'cancan'
-gem 'simple_form'

@@ -4,8 +4,11 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
   def current_user
-    return @user if defined?(@user)
-    @user = session[:user_id] && User.find(session[:user_id])
+    return @current_user if defined?(@current_user)
+
+    if session.key?(:user_id)
+      @current_user = User.find(session[:user_id])
+    end
   end
 
 end
