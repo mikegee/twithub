@@ -1,8 +1,8 @@
 class CreateStatuses < ActiveRecord::Migration
   def change
     create_table :statuses do |t|
-      t.string :content
-      t.references :author
+      t.string :content, null: false
+      t.references :author, null: false
 
       t.timestamps
     end

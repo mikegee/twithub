@@ -14,8 +14,8 @@
 ActiveRecord::Schema.define(:version => 20130305182437) do
 
   create_table "statuses", :force => true do |t|
-    t.string   "content"
-    t.integer  "author_id"
+    t.string   "content",    :null => false
+    t.integer  "author_id",  :null => false
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
