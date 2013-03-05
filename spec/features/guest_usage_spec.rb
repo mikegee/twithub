@@ -5,7 +5,7 @@ feature 'Guest Usage' do
     visit '/'
   end
 
-  scenario 'the user should be able to click a sign in link' do
-    click_link 'Sign In'
+  scenario 'the user should be able to click a login link' do
+    click_link 'Login'
   end
 end
