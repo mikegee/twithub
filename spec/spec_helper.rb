@@ -10,7 +10,10 @@ Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
 RSpec.configure do |config|
 
-  OmniAuth.config.test_mode = true
+  # This gets set this to false in one spec.
+  config.before(:each) { OmniAuth.config.test_mode = true }
+
+  config.include FactoryGirl::Syntax::Methods
 
   # ## Mock Framework
   #

@@ -20,10 +20,13 @@ end
 
 group :test do
   gem 'capybara'
+  gem 'launchy'
   gem 'shoulda-matchers'
 end
 
 group :test, :development do
+  gem 'factory_girl_rails'
+  gem 'haml-rails'
   gem 'rspec-rails'
 end
 
@@ -36,16 +39,4 @@ end
 
 __END__
 gem 'cancan'
-gem 'jquery-rails'
 gem 'simple_form'
-
-group :development, :test do
-  gem 'factory_girl_rails'
-  gem 'haml-rails'
-end
-
-group :development do
-  gem 'better_errors'
-  gem 'binding_of_caller'
-  gem 'quiet_assets'
-end
