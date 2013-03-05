@@ -7,6 +7,7 @@ gem 'pg',      group: [:production, :staging]
 
 gem 'foreman'
 gem 'jquery-rails'
+gem 'omniauth-github'
 gem 'thin'
 
 group :assets do
