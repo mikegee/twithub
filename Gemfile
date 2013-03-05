@@ -5,6 +5,7 @@ gem 'rails'
 gem 'sqlite3', group: [:test, :development]
 gem 'pg',      group: [:production, :staging]
 
+gem 'foreman'
 gem 'jquery-rails'
 gem 'thin'
 
