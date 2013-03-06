@@ -7,4 +7,6 @@ class User < ActiveRecord::Base
   validates_presence_of :name, :email
   validates_uniqueness_of :email
 
+  def to_s; name; end
+
 end
