@@ -1,5 +1,8 @@
 = div_for status, class: 'well well-small' do
-  .pull-left= status.content
-  .pull-right
+  .content= status.content
+  .fav
+    = link_to '#', title: 'Mark as Favorite' do
+      %i.icon.icon-star
+  .meta
     .author= status.author
     = timeago_tag(status.created_at)

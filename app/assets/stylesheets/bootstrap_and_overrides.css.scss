@@ -14,8 +14,26 @@ form#new_status {
   @extend .clearfix;
   @extend .span6;
 
+  .fav {
+    visibility: hidden;
+  }
+
   &:hover {
     border-color: $purple;
+
+    .fav {
+      visibility: visible;
+    }
+  }
+
+  .content {
+    @extend .pull-left;
+  }
+
+  .fav,
+  .meta {
+    @extend .pull-right;
+    margin: 0 5px;
   }
 
   time {
