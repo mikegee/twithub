@@ -2,7 +2,7 @@ require 'spec_helper'
 
 feature 'Following' do
 
-  let!(:target) { create(:user, name: 'Target of Following') }
+  let!(:target) { create(:user, name: 'Target User') }
   let(:user)    { create(:user, name: 'Current User') }
 
   background do
@@ -26,7 +26,9 @@ feature 'Following' do
     end
 
     scenario 'the user should be able to unfollow' do
-      click_link 'Following'
+      within "#user_#{target.id}" do
+        click_link 'Following'
+      end
       expect(page).to_not have_content(target.name)
     end
   end
