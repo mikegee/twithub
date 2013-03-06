@@ -2,7 +2,6 @@
 
   = render 'form'
 
-  %h1 Timeline
-
-  = render @statuses
-  = paginate @statuses
+  #timeline
+    = render @statuses
+    = paginate @statuses
