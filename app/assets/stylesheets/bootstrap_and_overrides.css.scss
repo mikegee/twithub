@@ -40,3 +40,12 @@ form#new_status {
     @extend .muted;
   }
 }
+
+.user {
+  @extend .clearfix;
+  @extend .well;
+  @extend .well-small;
+  .meta {
+    @extend .pull-right;
+  }
+}

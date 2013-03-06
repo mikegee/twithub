@@ -2,10 +2,11 @@ require 'spec_helper'
 
 feature 'Following' do
 
-  let!(:target) { create(:user) }
+  let!(:target) { create(:user, name: 'Target of Following') }
+  let(:user)    { create(:user, name: 'Current User') }
 
   background do
-    login
+    login_as user
     click_link 'People I Follow'
   end
 
@@ -13,10 +14,21 @@ feature 'Following' do
     expect(page).to have_content("You aren't following any users yet.")
   end
 
-  scenario 'the user should be able to follow other users' do
-    fill_in 'Name:', with: target.name
-    click_button 'Follow'
-    expect(page).to have_content(target.name)
+  describe 'the user should be able to follow other users' do
+    background do
+      fill_in 'Name:', with: target.name
+      find_by_id('follow_followee_id').set(target.id) # simulate JS
+      click_button 'Follow'
+    end
+
+    scenario 'the user should see the followed user' do
+      expect(page).to have_content(target.name)
+    end
+
+    scenario 'the user should be able to unfollow' do
+      click_link 'Following'
+      expect(page).to_not have_content(target.name)
+    end
   end
 
 end

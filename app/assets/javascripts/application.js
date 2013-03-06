@@ -16,3 +16,25 @@
 //= require bootstrap
 //= require rails-timeago
 //= require_tree .
+
+$(function() {
+
+  $('.following').hover(
+    function() {
+      $(this).html('Unfollow').removeClass('btn-primary').addClass('btn-danger');
+    },
+    function() {
+      $(this).html('Following').removeClass('btn-danger').addClass('btn-primary');
+    }
+  );
+
+  $('.followable').hover(
+    function() {
+      $(this).addClass('btn-success');
+    },
+    function() {
+      $(this).removeClass('btn-success');
+    }
+  );
+
+});

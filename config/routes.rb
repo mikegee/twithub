@@ -9,7 +9,7 @@ Twithub::Application.routes.draw do
 
   resources :users, only: [] do
     resources :favorites, only: [:index, :create]
-    resources :followings, only: [:index, :create]
+    resources :followings, only: [:index, :create, :destroy]
 
     get :search, on: :collection
   end

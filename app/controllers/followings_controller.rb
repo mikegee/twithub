@@ -3,7 +3,7 @@ class FollowingsController < ApplicationController
   def index
     @users = current_user.users_followed.page(params[:page])
     unless @users.any?
-      flash.now[:notice] = "You aren't following any users yet."
+      flash.now[:notice] ||= "You aren't following any users yet."
     end
   end
 
@@ -17,6 +17,11 @@ class FollowingsController < ApplicationController
       Follow.create(follower_id: current_user.id, followee_id: uid)
     end
 
+    redirect_to :back
+  end
+
+  def destroy
+    Follow.where(follower_id: current_user.id, followee_id: params[:id]).delete_all
     redirect_to :back
   end
 
