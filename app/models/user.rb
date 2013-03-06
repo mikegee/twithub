@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
 
   has_many :statuses, foreign_key: 'author_id'
+  has_many :favorite_marks
+  has_many :favorites, through: :favorite_marks, source: :status
 
   attr_accessible :name, :email
 

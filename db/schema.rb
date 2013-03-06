@@ -11,7 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130305190520) do
+ActiveRecord::Schema.define(:version => 20130306152029) do
+
+  create_table "favorite_marks", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "status_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "favorite_marks", ["status_id"], :name => "index_favorite_marks_on_status_id"
+  add_index "favorite_marks", ["user_id"], :name => "index_favorite_marks_on_user_id"
 
   create_table "statuses", :force => true do |t|
     t.string   "content",    :null => false

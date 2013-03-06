@@ -7,4 +7,8 @@ Twithub::Application.routes.draw do
 
   resources :statuses, only: [:index, :create]
 
+  resources :users, only: [] do
+    resources :favorites, only: [:index, :create]
+  end
+
 end

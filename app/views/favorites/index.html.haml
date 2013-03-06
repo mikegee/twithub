@@ -1,0 +1,5 @@
+- if @statuses.any?
+  = render @statuses
+  = paginate @statuses
+- else
+  .well You haven't marked any statuses as favorites yet.

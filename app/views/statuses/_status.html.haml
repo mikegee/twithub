@@ -1,8 +1,9 @@
 = div_for status, class: 'well well-small' do
   .content= status.content
   .fav
-    = link_to '#', title: 'Mark as Favorite' do
+    = link_to user_favorites_path(current_user, status_id: status.id), method: 'post', title: 'Mark as Favorite' do
       %i.icon.icon-star
+      .hide Mark as Favorite
   .meta
     .author= status.author
     = timeago_tag(status.created_at)
