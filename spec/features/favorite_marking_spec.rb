@@ -14,7 +14,7 @@ feature 'Marking Favorite Statuses' do
   end
 
   scenario 'the user should see the marked status in their favorites list' do
-    click_link 'My Favorites'
+    click_link 'Favorites'
     expect(page).to have_content(content)
   end
 
