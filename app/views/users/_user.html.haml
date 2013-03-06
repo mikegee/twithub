@@ -3,5 +3,5 @@
   .meta
     - if current_user.users_followed.include? user
       = link_to 'Following', user_following_path(current_user, user.id), method: 'delete', class: 'btn btn-primary following'
-    - else
+    - elsif current_user != user
       = link_to 'Follow', '#', class: 'btn followable'
