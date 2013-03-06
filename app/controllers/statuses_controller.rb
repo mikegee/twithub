@@ -1,7 +1,8 @@
 class StatusesController < ApplicationController
 
   def index
-    @statuses = current_user.timeline.page(params[:page]).per(params[:per])
+    @user = User.find(params[:user_id])
+    @statuses = @user.statuses.page(params[:page]).per(params[:per])
   end
 
   def create

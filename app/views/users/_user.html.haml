@@ -1,5 +1,5 @@
 = div_for user do
-  = user.name
+  = link_to user, user
   .meta
     - if current_user.users_followed.include? user
       = link_to 'Following', user_following_path(current_user, user.id), method: 'delete', class: 'btn btn-primary following'

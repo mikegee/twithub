@@ -12,5 +12,5 @@
         %i.icon.icon-star
         .hide= title
   .meta
-    .author= status.author
+    .author= link_to status.author, status.author
     = timeago_tag(status.created_at)

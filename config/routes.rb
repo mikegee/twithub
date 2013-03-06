@@ -1,13 +1,14 @@
 Twithub::Application.routes.draw do
 
-  root to: 'statuses#index'
+  root to: 'timeline#index'
 
   match '/auth/:provider/callback', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy', as: 'logout'
 
-  resources :statuses, only: [:index, :create]
+  resources :statuses, only: [:create]
 
-  resources :users, only: [] do
+  resources :users, only: [:show] do
+    resources :statuses,   only: [:index]
     resources :favorites,  only: [:index, :create, :destroy]
     resources :followings, only: [:index, :create, :destroy]
     resources :followers,  only: [:index]
