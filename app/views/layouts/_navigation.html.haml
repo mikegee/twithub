@@ -3,7 +3,9 @@
 - if current_user
 
   %ul.nav
-    %li= link_to 'My Favorites', user_favorites_path(current_user)
+    = nav_link 'Timeline', root_path
+    = nav_link 'Favorites', user_favorites_path(current_user)
+    = nav_link 'People I Follow', user_followings_path(current_user)
 
   %ul.nav.pull-right
     %li.dropdown

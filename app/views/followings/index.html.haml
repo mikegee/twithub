@@ -1,0 +1,21 @@
+.row
+  .span6
+    = render @users
+    = paginate @users
+
+  .span6
+    = simple_form_for current_user.outgoing_follows.build, url: user_followings_path(current_user) do |f|
+      = f.input :followee_id, as: 'hidden'
+      = label_tag :user_name, 'Name:', class: 'hide'
+      = text_field_tag :user_name, '', placeholder: 'Search for a person to follow', style: 'margin:0'
+      = f.submit 'Follow', class: 'btn btn-success'
+
+:javascript
+  search_users_path = "#{search_users_path}"
+:coffee
+  $ ->
+    $('#user_name').autocomplete(
+      source: search_users_path,
+      select: (event,ui) ->
+        $('#follow_followee_id').val(ui.item.id)
+    )
