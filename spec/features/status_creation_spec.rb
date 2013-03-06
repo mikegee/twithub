@@ -14,4 +14,8 @@ feature 'Status Creation' do
     expect(page).to have_content(content)
   end
 
+  scenario 'the author of the post should be visible within the post' do
+    expect(page).to have_css('.status', text: current_user.name)
+  end
+
 end

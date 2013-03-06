@@ -1,1 +1,5 @@
-.well.well-small= status.content
+= div_for status, class: 'well well-small' do
+  .pull-left= status.content
+  .pull-right
+    .author= status.author
+    = timeago_tag(status.created_at)

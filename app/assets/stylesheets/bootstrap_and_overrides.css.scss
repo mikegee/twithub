@@ -9,3 +9,16 @@ form#new_status {
     font-size: 200%;
   }
 }
+
+.status {
+  @extend .clearfix;
+  @extend .span6;
+
+  &:hover {
+    border-color: $purple;
+  }
+
+  time {
+    @extend .muted;
+  }
+}
