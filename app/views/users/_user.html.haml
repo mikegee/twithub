@@ -4,4 +4,4 @@
     - if current_user.users_followed.include? user
       = link_to 'Following', user_following_path(current_user, user.id), method: 'delete', class: 'btn btn-primary following'
     - elsif current_user != user
-      = link_to 'Follow', '#', class: 'btn followable'
+      = link_to 'Follow', user_followings_path(current_user, follow: {followee_id: user.id}), method: 'post', class: 'btn followable'
