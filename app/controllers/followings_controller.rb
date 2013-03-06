@@ -8,7 +8,15 @@ class FollowingsController < ApplicationController
   end
 
   def create
-    current_user.users_followed << User.find(params[:follow][:followee_id])
+    uid = params[:follow][:followee_id]
+
+    if current_user.id == uid.to_i
+      flash[:notice] = "You can't follow yourself, silly!"
+    elsif uid.present?
+      # silently ignore failure to create here
+      Follow.create(follower_id: current_user.id, followee_id: uid)
+    end
+
     redirect_to :back
   end
 
