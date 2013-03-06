@@ -1,9 +1,11 @@
 class FollowersController < ApplicationController
 
   def index
-    @users = current_user.followers.page(params[:page])
+    @user = User.find(params[:user_id])
+    @users = @user.followers.page(params[:page])
     unless @users.any?
-      flash.now[:notice] ||= "Nobody is following you yet."
+      name = @user == current_user ? 'you' : @user.name
+      flash.now[:notice] ||= "Nobody is following #{name} yet."
     end
   end
 

@@ -1,3 +1,6 @@
+- unless @user == current_user
+  %h3 Users that #{@user} follows
+
 .row
   .span6
     = render @users
