@@ -18,4 +18,8 @@ class User < ActiveRecord::Base
 
   def to_s; name; end
 
+  def timeline
+    Status.where(author_id: [self] + users_followed)
+  end
+
 end
