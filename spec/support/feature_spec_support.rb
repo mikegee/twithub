@@ -7,3 +7,7 @@ def login
 
   visit '/auth/github'
 end
+
+def current_user
+  @current_user
+end

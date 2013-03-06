@@ -1,7 +1,7 @@
 class StatusesController < ApplicationController
 
   def index
-    @statuses = Status.all
+    @statuses = Status.page(params[:page]).per(params[:per])
   end
 
   def create
