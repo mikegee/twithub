@@ -1,14 +1,18 @@
+- unless @user == current_user
+  %h3 Users Followed by #{@user}
+
 .row
   .span6
     = render @users
     = paginate @users
 
-  .span6
-    = simple_form_for current_user.outgoing_follows.build, url: user_followings_path(current_user) do |f|
-      = f.input :followee_id, as: 'hidden'
-      = label_tag :user_name, 'Name:', class: 'hide'
-      = text_field_tag :user_name, '', placeholder: 'Search for a person to follow', style: 'margin:0'
-      = f.submit 'Follow', class: 'btn btn-success'
+  - if @user == current_user
+    .span6
+      = simple_form_for current_user.outgoing_follows.build, url: user_followings_path(current_user) do |f|
+        = f.input :followee_id, as: 'hidden'
+        = label_tag :user_name, 'Name:', class: 'hide'
+        = text_field_tag :user_name, '', placeholder: 'Search for a person to follow', style: 'margin:0'
+        = f.submit 'Follow', class: 'btn btn-success'
 
 :javascript
   search_users_path = "#{search_users_path}"
