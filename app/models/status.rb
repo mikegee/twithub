@@ -7,6 +7,6 @@ class Status < ActiveRecord::Base
   validates :author_id, presence: true, numericality: true
   validates :content,   presence: true, length: { maximum: 200 }
 
-  default_scope order('created_at DESC')
+  default_scope order("#{table_name}.created_at DESC")
 
 end
