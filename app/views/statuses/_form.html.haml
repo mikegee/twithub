@@ -1,0 +1,15 @@
+= simple_form_for current_user.statuses.build do |f|
+  .modal.hide.fade#new-status
+    .modal-header
+      %button.close(type="button" data-dismiss="modal" aria-hidden="true")
+        &times;
+      %h3 What the deal?
+    .modal-body
+      = f.input :content, as: 'text'
+    .modal-footer
+      = link_to 'Cancel', '#', class: 'btn', 'data-dismiss' => 'modal'
+      = f.submit 'Post', class: 'btn btn-primary'
+
+:coffee
+  $ ->
+    $('#status_content').focus()

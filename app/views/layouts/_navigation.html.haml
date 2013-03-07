@@ -9,6 +9,10 @@
     = nav_link 'Followers', user_followers_path(current_user)
 
   %ul.nav.pull-right
+    %li
+      = link_to '#new-status', 'data-toggle' => 'modal' do
+        %i.icon.icon-pencil.icon-white
+        Compose
     %li.dropdown
       %a.dropdown-toggle{'data-toggle' => 'dropdown', 'href' => '#'}
         = current_user.name
