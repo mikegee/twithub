@@ -7,7 +7,9 @@ feature 'Logging into the app (in development mode)' do
   background do
     OmniAuth.config.test_mode = false
     visit '/'
-    click_link 'Login'
+    within 'nav' do
+      click_link 'Login'
+    end
     fill_in 'Name:',  with: user.name
     fill_in 'Email:', with: user.email
     click_button 'Sign In'

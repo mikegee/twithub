@@ -11,7 +11,9 @@ feature 'Guest Usage' do
   end
 
   scenario 'the user should be able to click a login link' do
-    click_link 'Login'
+    within 'nav' do
+      click_link 'Login'
+    end
   end
 
 end
