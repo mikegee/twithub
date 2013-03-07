@@ -1,5 +1,5 @@
-- if @statuses.any?
+- if @statuses.total_count.zero?
+  .well You haven't marked any statuses as favorites yet.
+- else
   = render @statuses
   = paginate @statuses
-- else
-  .well You haven't marked any statuses as favorites yet.
