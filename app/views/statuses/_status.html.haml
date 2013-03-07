@@ -1,10 +1,11 @@
 = div_for status, class: 'well well-small' do
   .content= status.content
-  .fav
-    - if current_user.favorites.exists?(id: status.id)
+  - isa_fav = current_user.favorites.exists?(id: status.id)
+  .fav{class: isa_fav ? 'favorited' : 'not-favorited'}
+    - if isa_fav
       - title  = 'Unmark as Favorite'
       = link_to user_favorite_path(current_user, status.id), method: 'delete', title: title do
-        %i.icon.icon-star-empty
+        %i.icon.icon-star
         .hide= title
     - else
       - title  = 'Mark as Favorite'

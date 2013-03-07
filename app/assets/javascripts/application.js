@@ -37,4 +37,13 @@ $(function() {
     }
   );
 
+  $('.status').hover(
+    function() {
+      $(this).find('.favorited .icon').removeClass('icon-star').addClass('icon-star-empty');
+    },
+    function() {
+      $(this).find('.favorited .icon').removeClass('icon-star-empty').addClass('icon-star');
+    }
+  );
+
 });

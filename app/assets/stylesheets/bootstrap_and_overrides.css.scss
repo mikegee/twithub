@@ -17,7 +17,7 @@ form#new_status {
   @extend .clearfix;
   @extend .span6;
 
-  .fav {
+  .fav.not-favorited {
     visibility: hidden;
   }
 
