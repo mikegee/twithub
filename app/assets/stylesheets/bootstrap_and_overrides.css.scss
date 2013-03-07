@@ -37,9 +37,29 @@ form#new_status {
     margin: 0 5px;
   }
 
-  time {
-    @extend .muted;
+  .gravatar {
+    @extend .pull-left;
+
+    .thumbnail {
+      height: 40px;
+      width:  40px;
+    }
   }
+
+  .details {
+    @extend .pull-right;
+    padding: 5px;
+
+    .author, time {
+      display: block;
+    }
+
+    time {
+      @extend .muted;
+      width: 150px;
+    }
+  }
+
 }
 
 .user {

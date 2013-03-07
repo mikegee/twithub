@@ -1,6 +1,9 @@
 = div_for status, class: 'well well-small' do
   .content= status.content
   = favorite_link(status)
-  .meta
-    .author= link_to status.author, status.author
-    = timeago_tag(status.created_at)
+  .meta.clearfix
+    .gravatar
+      = image_tag status.author.gravatar_url(size: 80), class: 'thumbnail'
+    .details
+      = link_to status.author, status.author, class: 'author'
+      = timeago_tag(status.created_at)
