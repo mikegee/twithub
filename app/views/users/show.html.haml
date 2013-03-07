@@ -1,8 +1,9 @@
-%h1= @user
+%h1
+  = @user
+  = follow_button(@user)
 
-= follow_button(@user)
-
-%ul
-  %li= link_to pluralize(@user.statuses.count, 'Status'), user_statuses_path(@user)
-  %li= link_to pluralize(@user.followers.count, 'Follower'), user_followers_path(@user)
-  %li= link_to 'Following ' + pluralize(@user.users_followed.count, 'User'), user_followings_path(@user)
+.row
+  %ul.nav.nav-tabs.nav-stacked.span2
+    %li= link_to pluralize(@user.statuses.count, 'Status'), user_statuses_path(@user)
+    %li= link_to pluralize(@user.followers.count, 'Follower'), user_followers_path(@user)
+    %li= link_to 'Following ' + pluralize(@user.users_followed.count, 'User'), user_followings_path(@user)

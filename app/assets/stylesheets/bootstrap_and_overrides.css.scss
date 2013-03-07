@@ -50,3 +50,7 @@ form#new_status {
     @extend .pull-right;
   }
 }
+
+h1 .following, h1 .followable {
+  font-weight: normal;
+}
