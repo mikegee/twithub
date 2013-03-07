@@ -22,8 +22,6 @@ form#new_status {
   }
 
   &:hover {
-    border-color: $purple;
-
     .fav {
       visibility: visible;
     }
