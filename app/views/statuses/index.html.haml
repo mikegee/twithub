@@ -1,3 +1,7 @@
-#timeline
-  = render @statuses
-  = paginate @statuses
+%h3 Statuses written by #{@user}
+- if @statuses.total_count.zero?
+  .well #{@user} hasn't written anything yet.
+- else
+  #timeline
+    = render @statuses
+    = paginate @statuses
