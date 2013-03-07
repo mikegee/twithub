@@ -1,4 +1,12 @@
 - if current_user
-  #timeline
-    = render @statuses
-    = paginate @statuses
+  - if @statuses.total_count.zero?
+    .well
+      Your timeline is currently empty.
+      How about
+      = link_to 'composing a status update', '#new-status', 'data-toggle' => 'modal'
+      or
+      = link_to 'following another user?', user_followings_path(current_user)
+  - else
+    #timeline
+      = render @statuses
+      = paginate @statuses
