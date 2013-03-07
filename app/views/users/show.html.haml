@@ -1,9 +1,11 @@
-%h1
-  = @user
-  = follow_button(@user)
+.row
+  %h1.span.clearfix
+    .pull-left= image_tag @user.gravatar_url(size: 160), class: 'thumbnail'
+    .pull-left= @user
+    = follow_button(@user)
 
 .row
-  %ul.nav.nav-tabs.nav-stacked.span2
+  %ul.nav.nav-tabs.nav-stacked.span
     %li= link_to pluralize(@user.statuses.count, 'Status'), user_statuses_path(@user)
     %li= link_to pluralize(@user.followers.count, 'Follower'), user_followers_path(@user)
     %li= link_to 'Following ' + pluralize(@user.users_followed.count, 'User'), user_followings_path(@user)

@@ -51,6 +51,14 @@ form#new_status {
   }
 }
 
-h1 .following, h1 .followable {
-  font-weight: normal;
+h1 {
+  .following, .followable {
+    font-weight: normal;
+  }
+
+  .thumbnail {
+    margin-right: 10px;
+    height: 80px;
+    width: 80px;
+  }
 }

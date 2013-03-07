@@ -1,5 +1,8 @@
 class User < ActiveRecord::Base
 
+  include Gravtastic
+  has_gravatar
+
   has_many :statuses, foreign_key: 'author_id'
 
   has_many :favorite_marks

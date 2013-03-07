@@ -8,6 +8,7 @@ gem 'pg',      group: [:production, :staging]
 gem 'airbrake'
 gem 'bootstrap-sass'
 gem 'foreman'
+gem 'gravtastic'
 gem 'haml'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
