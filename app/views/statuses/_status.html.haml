@@ -1,17 +1,6 @@
 = div_for status, class: 'well well-small' do
   .content= status.content
-  - isa_fav = current_user.favorite?(status)
-  .fav{class: isa_fav ? 'favorited' : 'not-favorited'}
-    - if isa_fav
-      - title  = 'Unmark as Favorite'
-      = link_to user_favorite_path(current_user, status.id), method: 'delete', title: title do
-        %i.icon.icon-star
-        .hide= title
-    - else
-      - title  = 'Mark as Favorite'
-      = link_to user_favorites_path(current_user, status_id: status.id), method: 'post', title: title do
-        %i.icon.icon-star
-        .hide= title
+  = favorite_link(status)
   .meta
     .author= link_to status.author, status.author
     = timeago_tag(status.created_at)

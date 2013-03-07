@@ -13,4 +13,23 @@ module ApplicationHelper
       link_to 'Follow', user_follows_path(current_user, follow: {followee_id: user.id}), method: 'post', class: 'btn followable'
     end
   end
+
+  def favorite_link(status)
+    isa_fav = current_user.favorite?(status)
+    content_tag :dev, class: 'fav ' + (isa_fav ? 'favorited' : 'not-favorited') do
+      if isa_fav
+        title = 'Unmark as Favorite'
+        link_to star_icon(title), user_favorite_path(current_user, status.id), method: 'delete', title: title
+      else
+        title  = 'Mark as Favorite'
+        link_to star_icon(title), user_favorites_path(current_user, status_id: status.id), method: 'post', title: title
+      end
+    end
+  end
+
+  def star_icon(title)
+    content_tag(:i, '', class: 'icon icon-star') +
+    content_tag(:span, title, class: 'hide')
+  end
+
 end
