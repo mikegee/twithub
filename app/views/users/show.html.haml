@@ -1,6 +1,6 @@
 %h1= @user
 
 %ul
-  %li= link_to 'Statuses', user_statuses_path(@user)
+  %li= link_to pluralize(@user.statuses.count, 'Status'), user_statuses_path(@user)
   %li= link_to pluralize(@user.followers.count, 'Follower'), user_followers_path(@user)
   %li= link_to 'Following ' + pluralize(@user.users_followed.count, 'User'), user_followings_path(@user)
