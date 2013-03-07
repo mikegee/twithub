@@ -23,7 +23,7 @@ class User < ActiveRecord::Base
   end
 
   def favorite?(status)
-    favorites.exists?(id: status.id)
+    favorite_marks.exists?(status_id: status.id)
   end
 
   def follows?(user)
