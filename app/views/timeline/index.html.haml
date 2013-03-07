@@ -10,3 +10,7 @@
     #timeline
       = render @statuses
       = paginate @statuses
+- else
+  .well
+    %p You aren't logged in yet!
+    %p= link_to 'Login via Github', login_path, class: 'btn btn-primary'
