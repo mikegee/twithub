@@ -6,12 +6,8 @@ class FavoritesController < ApplicationController
   end
 
   def create
-    if params[:user_id].to_i == current_user.id
-      current_user.favorites << Status.find(params[:status_id])
-      redirect_to :back
-    else
-      redirect_to :back, notice: "You can't mark favorites for other users, silly!"
-    end
+    current_user.favorites << Status.find(params[:status_id])
+    redirect_to :back
   end
 
   def destroy
