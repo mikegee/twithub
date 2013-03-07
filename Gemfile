@@ -5,6 +5,7 @@ gem 'rails'
 gem 'sqlite3', group: [:test, :development]
 gem 'pg',      group: [:production, :staging]
 
+gem 'airbrake'
 gem 'bootstrap-sass'
 gem 'foreman'
 gem 'haml'
