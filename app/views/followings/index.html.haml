@@ -8,7 +8,7 @@
 
   - if @user == current_user
     .span6
-      = simple_form_for current_user.outgoing_follows.build, url: user_followings_path(current_user) do |f|
+      = simple_form_for [current_user, current_user.outgoing_follows.build] do |f|
         = f.input :followee_id, as: 'hidden'
         = label_tag :user_name, 'Name:', class: 'hide'
         = text_field_tag :user_name, '', placeholder: 'Search for a person to follow', style: 'margin:0'
