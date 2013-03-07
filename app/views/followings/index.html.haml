@@ -12,7 +12,7 @@
         = f.input :followee_id, as: 'hidden'
         = label_tag :user_name, 'Name:', class: 'hide'
         = text_field_tag :user_name, '', placeholder: 'Search for a person to follow', style: 'margin:0'
-        = f.submit 'Follow', class: 'btn btn-success'
+        = f.submit 'Follow', class: 'btn btn-success hide', id: 'follow-submit'
 
 :javascript
   search_users_path = "#{search_users_path}"
@@ -22,4 +22,5 @@
       source: search_users_path,
       select: (event,ui) ->
         $('#follow_followee_id').val(ui.item.id)
+        $('#follow-submit').show()
     )
