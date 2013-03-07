@@ -16,13 +16,13 @@ module ApplicationHelper
 
   def favorite_link(status)
     isa_fav = current_user.favorite?(status)
-    content_tag :dev, class: 'fav ' + (isa_fav ? 'favorited' : 'not-favorited') do
+    content_tag :div, class: 'fav ' + (isa_fav ? 'favorited' : 'not-favorited') do
       if isa_fav
         title = 'Unmark as Favorite'
-        link_to star_icon(title), user_favorite_path(current_user, status.id), method: 'delete', title: title
+        link_to star_icon(title), user_favorite_path(current_user, status.id), method: 'delete', title: title, remote: true
       else
         title  = 'Mark as Favorite'
-        link_to star_icon(title), user_favorites_path(current_user, status_id: status.id), method: 'post', title: title
+        link_to star_icon(title), user_favorites_path(current_user, status_id: status.id), method: 'post', title: title, remote: true
       end
     end
   end
