@@ -1,5 +1,7 @@
 class FavoriteMark < ActiveRecord::Base
 
+  attr_accessible :status_id
+
   belongs_to :user
   belongs_to :status
 

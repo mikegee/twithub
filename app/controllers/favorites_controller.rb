@@ -6,7 +6,7 @@ class FavoritesController < ApplicationController
   end
 
   def create
-    current_user.favorites << Status.find(params[:status_id])
+    current_user.favorite_marks.create!(status_id: params[:status_id])
     redirect_to :back
   end
 
