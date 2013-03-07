@@ -22,4 +22,8 @@ class User < ActiveRecord::Base
     Status.where(author_id: [self] + users_followed)
   end
 
+  def favorite?(status)
+    favorites.exists?(id: status.id)
+  end
+
 end

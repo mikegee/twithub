@@ -1,6 +1,6 @@
 = div_for status, class: 'well well-small' do
   .content= status.content
-  - isa_fav = current_user.favorites.exists?(id: status.id)
+  - isa_fav = current_user.favorite?(status)
   .fav{class: isa_fav ? 'favorited' : 'not-favorited'}
     - if isa_fav
       - title  = 'Unmark as Favorite'
