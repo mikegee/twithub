@@ -15,7 +15,7 @@ feature 'User Profile' do
   end
 
   scenario 'the user should see a link to their statuses' do
-    click_link 'Statuses'
+    click_link '1 Status'
     expect(page).to have_content(content)
   end
 
