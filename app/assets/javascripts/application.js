@@ -19,6 +19,10 @@
 
 $(function() {
 
+  $('#new-status').on('shown', function() {
+    $('#status_content').focus();
+  });
+
   $('.following').hover(
     function() {
       $(this).html('Unfollow').removeClass('btn-primary').addClass('btn-danger');
