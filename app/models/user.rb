@@ -26,4 +26,8 @@ class User < ActiveRecord::Base
     favorites.exists?(id: status.id)
   end
 
+  def follows?(user)
+    outgoing_follows.exists?(followee_id: user.id)
+  end
+
 end

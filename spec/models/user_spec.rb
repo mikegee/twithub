@@ -37,4 +37,22 @@ describe User do
       expect(@timeline_content).to_not include('My name is Not Following')
     end
   end
+
+  describe '#follows?' do
+    let(:current_user)  { create(:user, name: 'Me') }
+    let(:following)     { create(:user, name: 'Following') }
+    let(:not_following) { create(:user, name: 'Not Following') }
+
+    before do
+      current_user.users_followed << following
+    end
+
+    it 'should indicate that the followed user is followed' do
+      expect(current_user.follows? following).to be_true
+    end
+
+    it 'should indicate that the not followed user is not followed' do
+      expect(current_user.follows? not_following).to be_false
+    end
+  end
 end
