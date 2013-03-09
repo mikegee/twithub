@@ -1,7 +1,7 @@
-= div_for status, class: 'well well-small' do
+= div_for status do
   .content= status.content
   = favorite_link(status)
-  .meta.clearfix
+  .meta
     .gravatar
       = image_tag status.author.gravatar_url(size: 80), class: 'thumbnail'
     .details

@@ -16,6 +16,8 @@ form#new_status {
 .status {
   @extend .clearfix;
   @extend .span6;
+  @extend .well;
+  @extend .well-small;
 
   .fav.not-favorited {
     visibility: hidden;
@@ -37,29 +39,32 @@ form#new_status {
     margin: 0 5px;
   }
 
-  .gravatar {
-    @extend .pull-left;
+  .meta {
+    @extend .clearfix;
 
-    .thumbnail {
-      height: 40px;
-      width:  40px;
+    .gravatar {
+      @extend .pull-left;
+
+      .thumbnail {
+        height: 40px;
+        width:  40px;
+      }
+    }
+
+    .details {
+      @extend .pull-right;
+      padding: 5px;
+
+      .author, time {
+        display: block;
+      }
+
+      time {
+        @extend .muted;
+        width: 150px;
+      }
     }
   }
-
-  .details {
-    @extend .pull-right;
-    padding: 5px;
-
-    .author, time {
-      display: block;
-    }
-
-    time {
-      @extend .muted;
-      width: 150px;
-    }
-  }
-
 }
 
 .user {
