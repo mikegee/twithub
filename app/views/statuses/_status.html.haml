@@ -3,7 +3,7 @@
   = favorite_link(status)
   .meta
     .gravatar
-      = image_tag status.author.gravatar_url(size: 80), class: 'thumbnail'
+      = image_tag status.author.gravatar_url(size: 80)
     .details
-      = link_to status.author, status.author, class: 'author'
+      = link_to status.author, status.author
       = timeago_tag(status.created_at)

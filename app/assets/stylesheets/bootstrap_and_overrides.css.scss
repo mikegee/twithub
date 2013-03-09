@@ -45,7 +45,8 @@ form#new_status {
     .gravatar {
       @extend .pull-left;
 
-      .thumbnail {
+      img {
+        @extend .thumbnail;
         height: 40px;
         width:  40px;
       }
@@ -55,7 +56,7 @@ form#new_status {
       @extend .pull-right;
       padding: 5px;
 
-      .author, time {
+      a, time {
         display: block;
       }
 
