@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130311145601) do
+ActiveRecord::Schema.define(:version => 20130311153826) do
 
   create_table "favorite_marks", :force => true do |t|
     t.integer  "user_id"
@@ -32,6 +32,16 @@ ActiveRecord::Schema.define(:version => 20130311145601) do
 
   add_index "follows", ["followee_id"], :name => "index_follows_on_followee_id"
   add_index "follows", ["follower_id"], :name => "index_follows_on_follower_id"
+
+  create_table "mentions", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "status_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "mentions", ["status_id"], :name => "index_mentions_on_status_id"
+  add_index "mentions", ["user_id"], :name => "index_mentions_on_user_id"
 
   create_table "statuses", :force => true do |t|
     t.string   "content",    :null => false

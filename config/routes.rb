@@ -13,6 +13,7 @@ Twithub::Application.routes.draw do
     resources :follows,    only: [:create, :destroy]
     resources :followings, only: [:index]
     resources :followers,  only: [:index]
+    resources :mentions,   only: [:index]
 
     get :search, on: :collection
   end

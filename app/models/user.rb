@@ -14,6 +14,9 @@ class User < ActiveRecord::Base
   has_many :incoming_follows, class_name: 'Follow', foreign_key: 'followee_id'
   has_many :followers, through: :incoming_follows, source: :follower
 
+  has_many :mentions
+  has_many :mentioning_statuses, through: :mentions, source: :status
+
   attr_accessible :name, :email, :nickname
 
   validates_presence_of :name, :email, :nickname
