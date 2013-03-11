@@ -1,10 +1,10 @@
 FactoryGirl.define do
 
   sequence(:email)    { |n| "user#{n}@example.com"}
-  sequence(:username) { |n| "username#{n}"}
+  sequence(:nickname) { |n| "nickname#{n}"}
 
   factory :user do
-    username
+    nickname
     name  'John Doe'
     email
   end

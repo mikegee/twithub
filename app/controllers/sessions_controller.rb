@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
   private
 
   def auth_hash
-    request.env['omniauth.auth'].info.slice(:name, :email)
+    request.env['omniauth.auth'].info.slice(:nickname, :name, :email)
   end
 
 end

@@ -2,11 +2,11 @@ require 'spec_helper'
 
 describe User do
 
-  it { should validate_presence_of(:username) }
-  it { should validate_uniqueness_of(:username) }
-  it { should validate_format_of(:username).with('mikegee') }
-  it { should validate_format_of(:username).not_with('@mikegee') }
-  it { should validate_format_of(:username).not_with('mikegee*') }
+  it { should validate_presence_of(:nickname) }
+  it { should validate_uniqueness_of(:nickname) }
+  it { should validate_format_of(:nickname).with('mikegee') }
+  it { should validate_format_of(:nickname).not_with('@mikegee') }
+  it { should validate_format_of(:nickname).not_with('mikegee*') }
 
   it { should validate_presence_of(:name) }
 

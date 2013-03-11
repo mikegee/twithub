@@ -1,9 +1,7 @@
 module ApplicationHelper
 
-  def login_path(provider = nil)
-    provider ||= (Rails.env.production? || Rails.env.staging?) ? 'github' : 'developer'
-
-    "/auth/#{provider}"
+  def login_path
+    '/auth/github'
   end
 
   def follow_button(user)

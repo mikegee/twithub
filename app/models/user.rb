@@ -14,11 +14,11 @@ class User < ActiveRecord::Base
   has_many :incoming_follows, class_name: 'Follow', foreign_key: 'followee_id'
   has_many :followers, through: :incoming_follows, source: :follower
 
-  attr_accessible :name, :email
+  attr_accessible :name, :email, :nickname
 
-  validates_presence_of :name, :email, :username
-  validates_uniqueness_of :email, :username
-  validates_format_of :username, with: /\A\w+\z/
+  validates_presence_of :name, :email, :nickname
+  validates_uniqueness_of :email, :nickname
+  validates_format_of :nickname, with: /\A\w+\z/
 
   def to_s; name; end
 
