@@ -16,8 +16,9 @@ class User < ActiveRecord::Base
 
   attr_accessible :name, :email
 
-  validates_presence_of :name, :email
-  validates_uniqueness_of :email
+  validates_presence_of :name, :email, :username
+  validates_uniqueness_of :email, :username
+  validates_format_of :username, with: /\A\w+\z/
 
   def to_s; name; end
 

@@ -4,7 +4,7 @@ end
 
 def login_as(user)
   @current_user = user
-  attrs = @current_user.attributes.with_indifferent_access.slice(:name, :email)
+  attrs = @current_user.attributes.with_indifferent_access.slice(:username, :name, :email)
 
   OmniAuth.config.test_mode = true
   OmniAuth.config.add_mock(:github, info: attrs)

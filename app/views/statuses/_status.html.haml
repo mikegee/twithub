@@ -1,5 +1,5 @@
 = div_for status do
-  .content= status.content
+  .content= link_mentions(status.content)
   = favorite_link(status)
   .meta
     .gravatar

@@ -2,7 +2,7 @@ require 'spec_helper'
 
 feature 'Status Creation' do
 
-  let(:content) { 'My current status is: <meh>' }
+  let(:content) { 'My current status is: [meh]' }
 
   background do
     login
