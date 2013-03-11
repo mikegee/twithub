@@ -1,0 +1,35 @@
+%h1 Direct Messages
+
+.row
+  .span6
+    = render @direct_messages
+    = paginate @direct_messages
+  .span6
+    = form_tag '#', id: 'search-form' do
+      = hidden_field_tag :recipient_id
+      = label_tag :user_name, 'Name:', class: 'hide'
+      = text_field_tag :user_name, '', placeholder: 'Search for a person to message', style: 'margin:0'
+      = submit_tag 'Send DM', class: 'btn btn-success hide', id: 'compose-dm'
+
+:javascript
+  search_users_path = "#{search_users_path}"
+:coffee
+  $ ->
+    $('#user_name').autocomplete(
+      source: search_users_path,
+      select: (event,ui) ->
+        $('#recipient_id').val(ui.item.id)
+        $('#compose-dm').show()
+    )
+    $('#search-form').submit( ->
+      form = $(this)
+      $('#new-status #recipient').show()
+      $('#new-status #recipient span').html(form.find('#user_name').val())
+      $('#status_recipient_id').val(form.find('#recipient_id').val())
+      $('#new-status').modal()
+      return false
+    )
+    $('#new-status').on('hide', ->
+      $('#new-status #recipient').hide()
+      $('#status_recipient_id').val('')
+    )

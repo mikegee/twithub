@@ -1,0 +1,3 @@
+.well.well-small
+  = mentioner
+  = timeago_tag(current_user.incoming_direct_messages_by(mentioner).first.created_at)

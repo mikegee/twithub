@@ -14,6 +14,7 @@ Twithub::Application.routes.draw do
     resources :followings, only: [:index]
     resources :followers,  only: [:index]
     resources :mentions,   only: [:index]
+    resources :direct_messages, only: [:index]
 
     get :search, on: :collection
   end

@@ -4,8 +4,12 @@
       %button.close(type="button" data-dismiss="modal" aria-hidden="true")
         &times;
       %h3 What the deal?
+      %h4.hide#recipient
+        Direct Message to
+        %span
     .modal-body
       = f.input :content, as: 'text'
+      = f.input :recipient_id, as: 'hidden'
     .modal-footer
       = link_to 'Cancel', '#', class: 'btn', 'data-dismiss' => 'modal'
       = f.submit 'Post', class: 'btn btn-primary'

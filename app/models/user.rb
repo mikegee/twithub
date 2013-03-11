@@ -26,7 +26,7 @@ class User < ActiveRecord::Base
   def to_s; name; end
 
   def timeline
-    Status.where(author_id: [self] + users_followed)
+    Status.timeline.where(author_id: [self] + users_followed)
   end
 
   def favorite?(status)
@@ -35,6 +35,18 @@ class User < ActiveRecord::Base
 
   def follows?(user)
     outgoing_follows.exists?(followee_id: user.id)
+  end
+
+  def incoming_direct_messages
+    mentioning_statuses.direct
+  end
+
+  def incoming_direct_messages_by(user)
+    incoming_direct_messages.where(author_id: user.id)
+  end
+
+  def dm_senders
+    incoming_direct_messages.map(&:author).uniq
   end
 
 end

@@ -25,4 +25,27 @@ describe Status do
       end
     end
   end
+
+  describe 'direct messaging restrictions' do
+    let(:alice) { create(:user) }
+    let(:bob)   { create(:user) }
+    before do
+      bob.users_followed << alice
+    end
+
+    it "lets alice send to bob" do
+      status = build(:status)
+      status.author = alice
+      status.recipient_id = bob.id
+      status.should be_valid
+    end
+
+    it "does not let bob send to alice" do
+      status = build(:status)
+      status.author = bob
+      status.recipient_id = alice.id
+      status.should_not be_valid
+      status.errors[:author].should_not be_empty
+    end
+  end
 end
